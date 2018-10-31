@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:3000/woolWorks_dev',
+    connection: 'postgres://localhost:5432/wool_works',
     migrations: {
       directory: path.join(__dirname, 'db', 'migrations')
     },

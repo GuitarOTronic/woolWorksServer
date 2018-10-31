@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken')
 
 class UsersModel {
 
+    static getAllUsers(){
+        return db('users')
+      }
 
-    static 
 }
 
 
