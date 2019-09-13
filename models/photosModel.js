@@ -3,13 +3,16 @@ const db = require('../db/connections.js')
 // const jwt = require('jsonwebtoken')
 
 
-class UsersModel {
+class PhotosModel {
 
-    static getAllUsers(){
+    static getAllPhotos(){
         return db('users')
       }
-
+    
+    static getSplashPhotos() {
+      return ()=>"heyo"
+    }
 }
 
 
-module.exports = UsersModel
+module.exports = PhotosModel

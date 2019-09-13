@@ -1,19 +1,22 @@
 require('dotenv').load()
 const express = require('express')
-const app = express()
 const cors = require('cors')
-const port = process.env.PORT || 2999
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const inventoryRoutes =require('./routes/inventory.js')
+const userRoutes = require('./routes/users.js')
+const photoRoutes = require('./routes/photos.js')
 
+const app = express()
+const port = process.env.PORT || 2999
 
 
 app.use(cors())
 app.use(bodyParser.json())
 app.use(morgan('dev'))
-
-const userRoutes = require('./routes/users.js')
 app.use('/users', userRoutes)
+app.use('/photos', photoRoutes)
+app.use('/inventory', inventoryRoutes)
 
 app.use((req, res) => {
   const status = 404;
