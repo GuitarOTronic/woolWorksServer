@@ -24,13 +24,24 @@ app.use((req, res) => {
   res.status(status).json({status, message})
 })
 
-app.use((error, req, res, next) => {
-  console.log('In internal error', error.message);
-  const message = error.message || 'Internal error'
-  const status = error.status || 500
-  res.status(status).json({message})
+// app.use((error, req, res, next) => {
+//   console.log('In internal error', error.message);
+//   const message = error.message || 'Internal error'
+//   const status = error.status || 500
+//   res.status(status).json({message})
+// })
+app.use((req, res, next) => {
+  const status = 404
+  const message = `Could not ${req.method} ${req.url}`
+  next({ status, message })
 })
 
+app.use((err, req, res, next) => {
+  console.error('donger',err)
+  const status = err.status || 500
+  const message = err.message || `Something went wrong!`
+  res.status(status).json({ status, message })
+})
 app.listen(port, () => {
   console.log('Listening on port: ', port);
 })
