@@ -8,10 +8,6 @@ class PhotosModel {
     static getAllPhotos(){
         return db('users')
       }
-    
-    static getSplashPhotos() {
-      return ()=>"heyo"
-    }
 }
 
 

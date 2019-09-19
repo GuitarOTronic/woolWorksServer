@@ -1,7 +1,7 @@
 const router =  require ('express').Router()
 const Controller = require('../controllers/InventoryController.js')
 
-router.get('/', Controller.getAllInventory)
+router.get('/', Controller.getCategories)
 router.get('/:id', Controller.getItem)
 router.post('/', Controller.createItem)
 router.delete('/:id', Controller.deleteItem)

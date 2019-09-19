@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use('/users', userRoutes)
 app.use('/photos', photoRoutes)
-app.use('/inventory', inventoryRoutes)
+app.use('/items', inventoryRoutes)
 
 app.use((req, res) => {
   const status = 404;

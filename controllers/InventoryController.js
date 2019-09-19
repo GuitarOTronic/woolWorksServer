@@ -9,8 +9,16 @@ class InventoryController {
   static getAllInventory(req, res, next) {
     InventoryModel.getAllInventory()
       .then(response => {
-        console.log('here')
         res.json({ inventory: response })
+      })
+  }
+
+  static getCategories(req, res, next){
+    console.log('getCategories')
+    InventoryModel.getCategories()
+      .then((categories) => {
+        console.log("then cont",categories)
+        res.status(200).json({categories})
       })
   }
 

@@ -7,15 +7,24 @@ const mockDB = require('../db/mockDB')
 class InventoryModel {
 
   static getAllInventory() {
-    return db('inventory')
+    return db('item')
     // .then( (res) => {
     //   console.log('res', res)
     // })
   }
 
+  static getCategories(){
+    return db('category')
+    .then(res => res)
+      // .returning('*')
+      // .then( res => {
+      //   return res
+      // })
+  }
+
   static getItem(id) {
-    return db('inventory')
-      .where('inventory.id', id)
+    return db('item')
+      .where('item.id', id)
       .first()
       .then(result => {
         return result
@@ -23,7 +32,7 @@ class InventoryModel {
   }
 
   static createItem(item) {
-    return db('inventory')
+    return db('item')
       .insert(item)
       .returning('*')
       .then(([res]) => {
@@ -31,7 +40,7 @@ class InventoryModel {
       })
   }
   static deleteItem(id) {
-    return db('inventory')
+    return db('item')
       .del()
       .where('id', id)
       .then( id => {
